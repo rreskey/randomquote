@@ -1,3 +1,11 @@
+@import url('App.css');
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,27 +16,62 @@ body {
 }
 
 html {
+  font-size: 62.5%;
   padding: 0;
   margin: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 .wrapper {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
+@keyframes bgQuote {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .quote {
-  background: #ccc;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
   padding: 0.5rem 1rem;
+  width: 50%;
   max-width: 50%;
+  display: flex;
+  font-family: 'Space Mono', monospace, 'Courier New',
+  monospace;
+  overflow: hidden;
+  border-radius: 30px;
+  animation: animationBackground 59s ease infinite;
+}
+
+.quote::before {
+  content: '';
+  position: absolute;
+  background: linear-gradient(#8BFA2B, #007200, #006883, #5AB7D4);
+  width: 100px;
+  height: 820%;
+  animation: bgQuote 15s linear infinite;
+}
+
+.quote::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  background: linear-gradient(290deg, #ff6f91, #ff9671, #ffc75f, #f9f871);
+  border-radius: 25px;
+}
+
+.quote * {
+  position: relative;
+  z-index: 10;
 }
 
 ul {
@@ -37,5 +80,13 @@ ul {
 }
 
 .author {
-  color: gray;
+  font-style: italic;
+  text-decoration: overline;
+  text-align: right;
+  font-size: 2.1rem;
+  margin-top: 3rem;
+}
+
+.author:hover {
+  color: blue;
 }
