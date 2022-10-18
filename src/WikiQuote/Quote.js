@@ -51,14 +51,15 @@ function Quote() {
     let url = 'https://en.wikipedia.org/wiki/';
     
     return (
-        <div className="quote">
+        <div className="quote" id="quote-box">
             <ul style={styles.ul}>
                 <li>
-                    <p style={styles.quoteData}>{data.content}</p>
-                    <p className="author"><a href={url+data.author} target="_blank" style={styles.link}>{data.author}</a></p>
+                    <p id="text" style={styles.quoteData}>{data.content}</p>
+                    <a id="tweet-quote" href="twitter.com/intent/tweet">tweet</a>
+                    <p id="author" className="author"><a href={url+data.author} target="_blank" style={styles.link}>{data.author}</a></p>
                 </li>
             </ul>
-            <Button type='button' variant='success' size='lg' style={styles.newQuote} onClick={updateQuote}>Get a random Quote</Button>
+            <Button id='new-quote' type='button' variant='success' size='lg' style={styles.newQuote} onClick={updateQuote}>Get a random Quote</Button>
         </div>
     )
 }
